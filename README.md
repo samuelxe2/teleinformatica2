@@ -1,92 +1,105 @@
-📡 Analizador de Protocolos de Última Milla (XDSL/PON)
-📝 Descripción
-Este programa analiza tramas de red capturadas en formato CSV (exportadas desde Wireshark) para protocolos de última milla como XDSL (PPPoE/PPP) y PON (GPON/EPON). Genera reportes HTML con los datos relevantes y explicaciones de los campos de protocolo.
+# 📡 Analizador de Protocolos de Última Milla (XDSL / PON)
 
-🛠️ Requisitos
-Python 3.x instalado
+# 📡 Analizador de Protocolos de Última Milla (XDSL / PON)
 
-Archivo CSV exportado desde Wireshark
+## 📝 Descripción
 
-Librerías Python:
+Este programa permite analizar tramas de red capturadas en formato CSV (exportado desde Wireshark), enfocándose en protocolos de última milla como **XDSL** (PPPoE/PPP) y **PON** (GPON/EPON). A partir de los datos, genera un reporte en **HTML** con información relevante, explicaciones de campos y estadísticas útiles.
 
-pandas
+---
 
-(Se instalan automáticamente al ejecutar por primera vez)
+## 🛠️ Requisitos
 
-📥 Instalación
-Clona el repositorio o descarga el archivo analizador_tramas.py
+- Python 3.x
+- Archivo `.csv` exportado desde Wireshark
+- Librería Python: `pandas`  
+  *(Se instala automáticamente si no está presente)*
 
-Instala las dependencias:
+---
 
-bash
-Copy
-pip install pandas
-🚀 Uso
-Exporta tus tramas desde Wireshark:
+## 📥 Instalación
 
-File > Export Packet Dissections > As CSV...
+1. Clona este repositorio o descarga el archivo `analizador_tramas.py`.
 
-Ejecuta el programa:
+2. Instala la dependencia necesaria ejecutando:
 
-bash
-Copy
-python analizador_tramas.py
-Sigue las instrucciones:
+   ```bash
+   pip install pandas
+   ```
 
-Ingresa la ruta a tu archivo CSV
+---
 
-Selecciona las columnas a analizar
+## 🚀 Uso
 
-Proporciona un nombre para el protocolo
+1. **Exporta las tramas desde Wireshark:**
 
-El programa generará un reporte HTML con los resultados
+   ```
+   File > Export Packet Dissections > As CSV...
+   ```
 
-🔍 Funcionalidades
-✅ Lista todas las columnas disponibles en el CSV
+2. **Ejecuta el programa:**
 
-✅ Permite seleccionar columnas específicas para analizar
+   ```bash
+   python analizador_tramas.py
+   ```
 
-✅ Genera reportes HTML con los datos seleccionados
+3. **Sigue las instrucciones en consola:**
 
-✅ Soporta tanto XDSL (PPPoE/PPP) como PON (GPON/EPON)
+   - Ingresa la ruta del archivo CSV
+   - Selecciona las columnas a analizar
+   - Proporciona un nombre para el protocolo
 
-📊 Columnas comunes a buscar
-Para XDSL/PPPoE:
-frame.number - Número de trama
+4. **Resultado:**  
+   Se generará un archivo HTML con el reporte detallado.
 
-frame.time - Hora de captura
+---
 
-eth.type - Tipo de trama Ethernet
+## 🔍 Funcionalidades
 
-pppoe.code - Código PPPoE
+- ✅ Lista todas las columnas disponibles en el archivo CSV
+- ✅ Permite seleccionar columnas específicas para el análisis
+- ✅ Genera reportes HTML conservando el formato original
+- ✅ Soporta protocolos XDSL (PPPoE/PPP) y PON (GPON/EPON)
 
-pppoe.type - Tipo de mensaje PPPoE
+---
 
-ppp.protocol - Protocolo encapsulado en PPP
+## 📊 Columnas comunes a analizar
 
-Para PON/GPON:
-gpon.omci - Mensajes OMCI
+### Para XDSL / PPPoE:
 
-gpon.port_id - ID de puerto GPON
+- `frame.number` → Número de trama  
+- `frame.time` → Marca de tiempo  
+- `eth.type` → Tipo de trama Ethernet  
+- `pppoe.code` → Código del mensaje PPPoE  
+- `pppoe.type` → Tipo de mensaje PPPoE  
+- `ppp.protocol` → Protocolo encapsulado en PPP  
 
-gpon.onu_id - Identificador de ONU
+### Para PON / GPON:
 
-gpon.gemport - Puerto GEM
+- `gpon.omci` → Mensajes OMCI  
+- `gpon.port_id` → ID de puerto GPON  
+- `gpon.onu_id` → Identificador de ONU  
+- `gpon.gemport` → Puerto GEM asociado  
 
-📂 Estructura de salida
-El programa genera:
+---
 
-Un reporte HTML con los datos analizados
+## 📂 Salida generada
 
-Conserva el formato original del CSV
+- 🧾 **Archivo HTML** con:
+  - Datos seleccionados
+  - Metadatos del análisis
+  - Explicación de campos
+- 🔒 Formato del CSV original respetado
 
-Incluye metadatos sobre el análisis
+---
 
-🐛 Solución de problemas
-Si el programa no encuentra columnas relevantes:
+## 🐛 Solución de problemas
 
-Verifica que el archivo CSV contenga datos
+**¿No aparecen columnas relevantes?**
 
-Revisa los nombres de las columnas en el CSV
+- Verifica que el archivo CSV contenga datos útiles.
+- Revisa los nombres exactos de las columnas.
+- Asegúrate de exportar correctamente desde Wireshark con todos los campos necesarios.
 
-Exporta nuevamente desde Wireshark asegurándote de incluir todos los campos
+
+
