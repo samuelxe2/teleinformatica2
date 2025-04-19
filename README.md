@@ -93,13 +93,6 @@ Este programa permite analizar tramas de red capturadas en formato CSV (exportad
 
 ---
 
-## 🐛 Solución de problemas
-
-**¿No aparecen columnas relevantes?**
-
-- Verifica que el archivo CSV contenga datos útiles.
-- Revisa los nombres exactos de las columnas.
-- Asegúrate de exportar correctamente desde Wireshark con todos los campos necesarios.
 
 
 
